@@ -21,9 +21,31 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class HomePage extends StatelessWidget {
+//    stateless widget daha sonradan değişime uğramayacak olan widgetler.değişmeyecek yazılar gibi.
+//    statefull widget daha sonradan değişecek widgetler. sayaç texti gibi.
+
+class HomePage extends StatefulWidget {
   HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   var _sayac = 0;
+
+  void _sayacArttir() {
+    // statefullWidget classından extend edince setState kullanabiliriz.
+    setState(() {
+      _sayac++;
+    });
+  }
+
+  void _sayacAzalt() {
+    setState(() {
+      _sayac--;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -46,14 +68,14 @@ class HomePage extends StatelessWidget {
         children: [
           FloatingActionButton(
             onPressed: () {
-              _sayac--;
+              _sayacAzalt();
             },
             child: Icon(Icons.remove),
           ),
           SizedBox(height: 4),
           FloatingActionButton(
             onPressed: () {
-              _sayac++;
+              _sayacArttir();
             },
             child: Icon(Icons.add),
           ),
