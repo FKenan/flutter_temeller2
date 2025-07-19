@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_temeller2/buton_turleri.dart';
 
 void main(List<String> args) {
   runApp(MyApp());
@@ -20,6 +21,10 @@ class MyApp extends StatelessWidget {
             color: Theme.of(context).colorScheme.primary,
           ),
         ), // uygulamanın genelinde verilen text teması
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          //tüm elevated buttonlara style verme.
+          style: ElevatedButton.styleFrom(backgroundColor: Colors.yellow),
+        ),
         floatingActionButtonTheme: FloatingActionButtonThemeData(
           // uygulamanın floating buttonlarının kullanacağı default tema
           backgroundColor: Colors.yellow,
@@ -27,7 +32,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors
             .pink, // primarySwatch ile tema renki verdik butonlara appbara vb burda belirlediğimiz renk verilir.
       ),
-      home: HomePage(),
+      home: ButonTurleri(),
     );
   }
 }
